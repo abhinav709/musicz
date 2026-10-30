@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live Audio Share</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Live Audio Share</h1>
+      <p class="sub">One host shares audio. Anyone with this page can listen.</p>
+      <span id="conn" class="pill pill-muted">Connecting…</span>
+    </header>
+
+    <section class="card" id="listen-card">
+      <h2>Listen</h2>
+      <p id="listen-status" class="status">Not listening.</p>
+      <div class="row">
+        <button id="listen-btn" class="btn primary">Listen</button>
+        <button id="unlisten-btn" class="btn" hidden>Stop listening</button>
+      </div>
+      <audio id="remote" autoplay controls hidden></audio>
+    </section>
+
+    <section class="card" id="host-card">
+      <h2>Host</h2>
+      <p class="hint">Share a Chrome or Edge tab, or an entire screen, with audio enabled. Only one host can be live at a time.</p>
+      <p id="host-status" class="status">Not sharing.</p>
+      <p id="host-msg" class="notice" role="alert" hidden></p>
+      <div class="row">
+        <button id="start-btn" class="btn primary">Start sharing</button>
+        <button id="stop-btn" class="btn danger" hidden>Stop sharing</button>
+      </div>
+      <p class="fine" id="host-count"></p>
+    </section>
+
+    <footer>
+      Audio streams peer to peer over WebRTC. The server only relays connection setup and never stores or records audio.
+    </footer>
+  </main>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
